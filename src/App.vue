@@ -7,7 +7,7 @@
     />
     <button @click="confirmName">Enter</button>
   </div>
-  
+
   <!-- v-if="hasEntered" 이 조건에 따라 화면이 갈림 -->
   <div v-if="hasEntered"> 
     <p>Hello, {{ username }}!</p>
@@ -20,7 +20,7 @@
 
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
-        {{ task }}
+        {{index + 1}}. {{ task }}
       </li>
     </ul>
   </div>
@@ -42,14 +42,15 @@ export default { //이 파일이 vue 컴포넌트라고 알려주는 코드
       if (this.username.trim()) {
         this.hasEntered = true;
       }
-    }
-  },
-  addTask() {
-    if (this.newTask.trim()) {
-      this.tasks.push(this.newTask);
-      this.newTask = '';
+    },
+    addTask() {
+      if (this.newTask.trim()) {
+        this.tasks.push(this.newTask);
+        this.newTask = '';
+      }
     }
   }
+  
 }
 </script>
 
